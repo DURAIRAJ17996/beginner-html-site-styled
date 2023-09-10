@@ -45,7 +45,7 @@ pipeline {
                     sh "export NODE_PORT=$(kubectl get svc simplehtml -o jsonpath='{.spec.ports[0].nodePort}')"
                     
                     // Access the application in Minikube (assuming Minikube's IP is accessible)
-                    echo "Access your application at: http://$(minikube ip):$NODE_PORT"
+                    echo "Access your application at: http://192.168.49.2:$NODE_PORT"
                 }
             }
         }
