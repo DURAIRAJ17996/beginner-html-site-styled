@@ -32,7 +32,8 @@ pipeline {
             steps {
                 script {
                     // Set the Minikube context (assumes you have already started Minikube)
-                    sh "minikube update-context"
+                    sh "minikube profile minikube"  // Set the Minikube profile explicitly
+
                     
                     // Deploy your Docker image to Minikube
                     sh "kubectl create deployment simplehtml --image=$registry:latest"
