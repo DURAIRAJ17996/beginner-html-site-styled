@@ -36,14 +36,14 @@ pipeline {
 
                     
                     // Deploy your Docker image to Minikube
-                    sh "kubectl create deployment simplehtml --image=$registry:latest"
-                    sh "kubectl expose deployment simplehtml --type=NodePort --port=80"
+                    sh "minikube kubectl -- create deployment simplehtml --image=$registry:latest"
+                    sh "minikube kubectl -- expose deployment simplehtml --type=NodePort --port=80"
 
                     // Wait for the deployment to be ready (optional)
-                    sh "kubectl rollout status deployment/simplehtml"
+                    sh "minikube kubectl -- rollout status deployment/simplehtml"
                     
                     // Get the NodePort to access the service
-                    sh "export NODE_PORT=\$(kubectl get svc simplehtml -o jsonpath='{.spec.ports[0].nodePort}')"
+                    sh "export NODE_PORT=\$(minikube kubectl -- get svc simplehtml -o jsonpath='{.spec.ports[0].nodePort}')"
 
                     
                     // Access the application in Minikube (assuming Minikube's IP is accessible)
