@@ -5,7 +5,7 @@ FROM durairajsekar/my_nginx:latest
 COPY . /usr/share/nginx/html
 
 # Expose port 80 for HTTP traffic
-EXPOSE 90
+EXPOSE 80
 
 # Start Nginx when the container is run
 CMD ["nginx", "-g", "daemon off;"]
