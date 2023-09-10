@@ -1,5 +1,5 @@
 # Use the official Nginx image as the base image
-FROM durairajsekar/my_nginx:latest
+FROM nginx:latest
 
 # Copy your HTML and assets into the default Nginx webroot directory
 COPY . /usr/share/nginx/html
